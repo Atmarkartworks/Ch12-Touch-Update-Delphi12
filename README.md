@@ -8,7 +8,7 @@ ___
 ### Screen Shots
 
 
-<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/4e68c20b-b038-449c-8bbe-3b08c701becd" width="250" height="450" valign="top">  1. Start application.
+<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/4e68c20b-b038-449c-8bbe-3b08c701becd" width="250" height="450" valign="top">  1. Start sample application.
 
 <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/6f436e95-052f-479a-9fe8-16ab6a601309" width="250" height="450" valign="top"> 2. First finger was going to down.
 
@@ -22,7 +22,7 @@ ___
 
 <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/fe2b8815-5562-4f2f-90e2-fa72a4032fe7" width="250" height="450" valign="top"> 7.  Up First Finger. Return to the specific identifier position. Second Finger was remaing specific circle color.
 
-<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/906c1893-618a-4737-aecd-ad503b991c8a" width="250" height="450" valign="top"> 8.  Up Second Finger. perfectly control sensor attitude.
+<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/906c1893-618a-4737-aecd-ad503b991c8a" width="250" height="450" valign="top"> 8.  Up Second Finger.   Perfectly control sensor attitude.
 
 
 
