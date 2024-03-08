@@ -4,6 +4,9 @@
 
 [FMX.Types.TTouch](https://docwiki.embarcadero.com/Libraries/Athens/en/FMX.Types.TTouch)
 
+### C:\Program Files (x86)\Embarcadero\Studio\23.0\source\fmx
+* FMX.Platform.iOS.pas 
+* FMX.Platform.UI.Android.pas 
 
 
 
