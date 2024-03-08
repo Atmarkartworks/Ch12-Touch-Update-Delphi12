@@ -1,4 +1,18 @@
 
+# Improved Touch Sensor Module : Track to the Finger
+
+
+[FMX.Types.TTouch](https://docwiki.embarcadero.com/Libraries/Athens/en/FMX.Types.TTouch)
+
+
+
+
+
+
+
+
+
+
 
 
 # Delphi GUI Programming with FireMonkey
