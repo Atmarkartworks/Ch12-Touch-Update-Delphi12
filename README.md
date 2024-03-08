@@ -80,3 +80,11 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
  <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
 <p align="center"> <a href="https://packt.link/free-ebook/9781788624176">https://packt.link/free-ebook/9781788624176 </a> </p>
+![st017](https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/906c1893-618a-4737-aecd-ad503b991c8a)
+![st016](https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/fe2b8815-5562-4f2f-90e2-fa72a4032fe7)
+![st015](https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/c83c6c90-a220-43b4-8ba7-1d1e793ca8f3)
+![st014](https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/0d7dfa2b-2341-441a-ad5c-768c66003bac)
+![st013](https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/9724b035-0ddc-4e08-8d2a-97768af408ea)
+![st012](https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/53dac0cf-6efa-41f7-b20d-801a0a4e7f7c)
+![st011](https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/6f436e95-052f-479a-9fe8-16ab6a601309)
+![st010](https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/4e68c20b-b038-449c-8bbe-3b08c701becd)
