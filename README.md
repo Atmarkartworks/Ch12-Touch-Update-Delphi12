@@ -9,26 +9,13 @@ If you backport to under the latest version, check the below source code.
 ### C:\Program Files (x86)\Embarcadero\Studio\23.0\source\fmx
 * FMX.Platform.iOS.pas 
 * FMX.Platform.UI.Android.pas 
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
+             
+             
+             
+             
+             
+             
+                            
 # Delphi GUI Programming with FireMonkey
 
 <a href="https://www.packtpub.com/application-development/delphi-gui-programming-firemonkey?utm_source=github&utm_medium=repository&utm_campaign=9781788624176"><img src="https://static.packt-cdn.com/products/9781788624176/cover/smaller" alt="Delphi GUI Programming with FireMonkey" height="256px" align="right"></a>
