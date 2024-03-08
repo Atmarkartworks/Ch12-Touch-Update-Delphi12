@@ -8,24 +8,44 @@ ___
 ### Screen Shots
 
 
-<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/4e68c20b-b038-449c-8bbe-3b08c701becd" width="250" height="450" valign="top">  1. Start sample application.
+1. <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/4e68c20b-b038-449c-8bbe-3b08c701becd" width="250" height="450" align="left" valign="top"> Start sample application.  
 
-<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/6f436e95-052f-479a-9fe8-16ab6a601309" width="250" height="450" valign="top"> 2. First finger was going to down.
-
-<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/53dac0cf-6efa-41f7-b20d-801a0a4e7f7c" width="250" height="450" valign="top"> 3. Touch First Finger  
-
-<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/9724b035-0ddc-4e08-8d2a-97768af408ea" width="250" height="450" valign="top"> 4. Second finger was going to down, too.
-
-<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/0d7dfa2b-2341-441a-ad5c-768c66003bac" width="250" height="450" valign="top"> 5. Touch Second Finger   
-
-<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/c83c6c90-a220-43b4-8ba7-1d1e793ca8f3" width="250" height="450" valign="top"> 6.    
-
-<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/fe2b8815-5562-4f2f-90e2-fa72a4032fe7" width="250" height="450" valign="top"> 7.  Up First Finger. Return to the specific identifier position. Second Finger was remaing specific circle color.
-
-<img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/906c1893-618a-4737-aecd-ad503b991c8a" width="250" height="450" valign="top"> 8.  Up Second Finger.   Perfectly control sensor attitude.
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
+2. <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/6f436e95-052f-479a-9fe8-16ab6a601309" width="250" height="450" align="left" valign="top"> First finger was going to down.  
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+3. <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/53dac0cf-6efa-41f7-b20d-801a0a4e7f7c" width="250" height="450" align="left" valign="top"> Touch First Finger 
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+4. <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/9724b035-0ddc-4e08-8d2a-97768af408ea" width="250" height="450" align="left" valign="top"> Second finger was going to down, too. 
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+5. <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/0d7dfa2b-2341-441a-ad5c-768c66003bac" width="250" height="450" align="left" valign="top"> Touch Second Finger. 
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+6. <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/c83c6c90-a220-43b4-8ba7-1d1e793ca8f3" width="250" height="450" align="left" valign="top">      
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+7. <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/fe2b8815-5562-4f2f-90e2-fa72a4032fe7" width="250" height="450" align="left" valign="top">Up First Finger. Return to the specific identifier position.  
+Second Finger was remaing specific circle color.
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+8. <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/906c1893-618a-4737-aecd-ad503b991c8a" width="250" height="450" align="left" valign="top">Up Second Finger.  
+Perfectly control sensor attitude.
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
@@ -36,14 +56,14 @@ If you backport to under the latest version, check the below source code.
 * FMX.Platform.iOS.pas 
 * FMX.Platform.UI.Android.pas 
 
-
+<br>
 
                
 ___
-             
-             
-             
-             
+<br>             
+<br>             
+<br>             
+<br>             
                             
 # Delphi GUI Programming with FireMonkey
 
