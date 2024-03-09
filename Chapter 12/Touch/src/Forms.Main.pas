@@ -1,5 +1,3 @@
-
-
 unit Forms.Main;
 
 interface
