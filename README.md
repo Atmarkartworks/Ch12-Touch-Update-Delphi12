@@ -43,7 +43,7 @@ Second Finger was remaing specific circle color.
 
 
 8. <img src="https://github.com/Atmarkartworks/Ch12-Touch-Update-Delphi12/assets/21020619/42c04dc1-ec20-440e-901b-bc419b46597a" width="250" height="450" align="left" valign="top">Up Second Finger.  
-Perfectly control sensor attitude.
+Normaly control sensor attitude.
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
