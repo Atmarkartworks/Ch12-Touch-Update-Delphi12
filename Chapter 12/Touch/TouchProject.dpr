@@ -3,7 +3,7 @@ program TouchProject;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  Forms.Main in 'Forms.Main.pas' {MainForm};
+  Forms.Main in 'src\Forms.Main.pas' {MainForm};
 
 {$R *.res}
 
