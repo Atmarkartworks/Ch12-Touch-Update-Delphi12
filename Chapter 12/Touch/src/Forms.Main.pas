@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types ,FMX.Platform.UI.Android,
   FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Gestures,
-  FMX.Objects, FMX.Controls.Presentation, FMX.StdCtrls;
+  FMX.Objects, FMX.Controls.Presentation, FMX.StdCtrls, AAW.UpDownDetect;
 type
   TMainForm = class(TForm)
     Circle1: TCircle;
@@ -47,6 +47,7 @@ begin
   , Circle6, Circle7, Circle8, Circle9, Circle10
   ];
 
+
   FCirclesSP := [
     Circle1.Position.Point,
     Circle2.Position.Point,
@@ -61,10 +62,15 @@ begin
    ];
 
   FDownCounter := 0;
+
+
+  DownSlotInit;
+  UpEmitterSlotInit;
+  UpSlotInit;
+  MoveSlotInit;
 end;
 
-procedure TMainForm.FormTouch(Sender: TObject; const Touches: TTouches;
-  const Action: TTouchAction);
+procedure TMainForm.FormTouch(Sender: TObject; const Touches: TTouches; const Action: TTouchAction);
 var
   LIndex: Integer;
   LTouchLocation: TPointF;
@@ -74,21 +80,29 @@ begin
   if Length(Touches) > 10 then
     Exit;
 
+  MoveSlotInit;
 
   ActionLabel.Text := TRttiEnumerationType.GetName<TTouchAction>(Action);
-
 
 
   for var cnt := 0 to Length(Touches)-1 do begin
     var TouchId := Touches[cnt].Id;
     var Action1 := Touches[cnt].Action;
 
+  //
+  // > adb logcat -c
+  // > adb logcat -s info
+  //
+  Log.d('########## cnt : %d Id : %d Action : %s ###########',[cnt, TouchId, TRttiEnumerationType.GetName<TTouchAction>(Action1)]);
+
+
+
     case Action1 of
       TTouchAction.None: ;
 
-      TTouchAction.Up: FCircles[TouchId].Position.Point := FCirclesSP[TouchId];
+      TTouchAction.Up: UpEmitterSlot1(TouchId);
 
-      TTouchAction.Down: ;
+      TTouchAction.Down: DownSlot1(TouchId);
 
       TTouchAction.Move:
         begin
@@ -97,25 +111,70 @@ begin
 
           LTouchLocation.Offset(-LCircle.Width / 2, -LCircle.Height / 2);
           LCircle.Position.Point := LTouchLocation;
+
+          MoveSlot1(TouchId);
         end;
-      TTouchAction.Cancel: FDownCounter := 0;
+      TTouchAction.Cancel:
+
+        begin
+          FDownCounter := 0;
+          FCircles[TouchId].Position.Point := FCirclesSP[TouchId];
+        end;
 
     end;
   end;
 
-
   case Action of
     TTouchAction.None: ;
-    TTouchAction.Up: Dec(FDownCounter);
-    TTouchAction.Down: Inc(FDownCounter);
-    TTouchAction.Move: ;
-    TTouchAction.Cancel: FDownCounter := 0;
+    TTouchAction.Up:
+      begin
 
+        //if SumUpEmitterSlot = 1 then begin
+        //  var id := Touches[0].Id;
+        //  FCircles[id].Position.Point := FCirclesSP[id];
+        //end;
+
+        Dec(FDownCounter);
+
+        if FDownCounter = 0 then begin
+          //for var cnt := 0 to Length(Touches)-1 do begin
+          //  var TouchId := Touches[cnt].Id;
+          //  FCircles[TouchId].Position.Point := FCirclesSP[TouchId];
+          //end;
+
+          for var finger1 := 0 to 10 - 1 do begin
+            var eval1 := UpEmitterSlot(finger1);
+            if eval1 = 1 then begin
+              UpEmitterSlot0(finger1);
+              DownSlot0(finger1);
+              FCircles[finger1].Position.Point := FCirclesSP[finger1];
+            end;
+          end;
+        end;
+      end;
+    TTouchAction.Down: Inc(FDownCounter);
+    TTouchAction.Move:
+      begin
+
+        if SumUpEmitterSlot > 1 then begin
+
+          for var finger := 0 to 10 - 1 do begin
+            var eval := 10 * UpEmitterSlot(finger) + MoveSlot(finger);
+            if eval = 11 then
+              UpEmitterSlot0(finger)
+            else if eval = 10 then begin
+              UpEmitterSlot0(finger);
+              DownSlot0(finger);
+              FCircles[finger].Position.Point := FCirclesSP[finger];
+            end;
+          end;
+        end;
+      end;
+    TTouchAction.Cancel: FDownCounter := 0;
   end;
 
-  DownCounterLabel.Text := 'Down: ' + FDownCounter.ToString;
 
+  DownCounterLabel.Text := 'Down: ' + FDownCounter.ToString;
 end;
 
 end.
-
