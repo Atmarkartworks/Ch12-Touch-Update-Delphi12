@@ -173,7 +173,6 @@ begin
     TTouchAction.Cancel: FDownCounter := 0;
   end;
 
-
   DownCounterLabel.Text := 'Down: ' + FDownCounter.ToString;
 end;
 
