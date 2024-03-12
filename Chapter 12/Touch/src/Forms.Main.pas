@@ -108,7 +108,7 @@ begin
     case Action1 of
       TTouchAction.None: ;
 
-      TTouchAction.Up: UpEmitterSlot1(TouchId, Touches[cnt].Location);Å@
+      TTouchAction.Up: UpEmitterSlot1(TouchId, Touches[cnt].Location);¬Å
 
         // If any code is going to be written in this just here line, there are Error E2026! constant? constant! constant...
         // Do not pit fall in novice trap. It's just a Syntax Error.
@@ -127,12 +127,17 @@ begin
           MoveSlot1(TouchId);
         end;
       TTouchAction.Cancel:
-        begin
-          FDownCounter := 0;
 
-          DownSlot0(TouchId);
-          UpEmitterSlot0(TouchId);
-        end;
+        begin
+
+          FDownCounter := 0;
+
+
+          DownSlot0(TouchId);
+
+          UpEmitterSlot0(TouchId);
+
+        end;
 
     end;
   end;
