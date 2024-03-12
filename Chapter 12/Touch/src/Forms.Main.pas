@@ -47,7 +47,6 @@ begin
   , Circle6, Circle7, Circle8, Circle9, Circle10
   ];
 
-
   FCirclesSP := [
     Circle1.Position.Point,
     Circle2.Position.Point,
@@ -68,9 +67,18 @@ begin
   UpEmitterSlotInit;
   UpSlotInit;
   MoveSlotInit;
+
+  UpPointsInit;
+
+  SetAawUpListener(
+    procedure(FingerId: Integer; Apoint: TPointF) begin
+      FCircles[FingerId].Position.Point := FCirclesSP[FingerId];
+    end
+  );
 end;
 
-procedure TMainForm.FormTouch(Sender: TObject; const Touches: TTouches; const Action: TTouchAction);
+procedure TMainForm.FormTouch(Sender: TObject; const Touches: TTouches;
+  const Action: TTouchAction);
 var
   LIndex: Integer;
   LTouchLocation: TPointF;
@@ -80,10 +88,11 @@ begin
   if Length(Touches) > 10 then
     Exit;
 
-  MoveSlotInit;
 
   ActionLabel.Text := TRttiEnumerationType.GetName<TTouchAction>(Action);
 
+
+  MoveSlotInit;
 
   for var cnt := 0 to Length(Touches)-1 do begin
     var TouchId := Touches[cnt].Id;
@@ -96,13 +105,16 @@ begin
   Log.d('########## cnt : %d Id : %d Action : %s ###########',[cnt, TouchId, TRttiEnumerationType.GetName<TTouchAction>(Action1)]);
 
 
-
     case Action1 of
       TTouchAction.None: ;
 
-      TTouchAction.Up: UpEmitterSlot1(TouchId);
+      TTouchAction.Up: UpEmitterSlot1(TouchId, Touches[cnt].Location);Å@
 
-      TTouchAction.Down: DownSlot1(TouchId);
+        // If any code is going to be written in this just here line, there are Error E2026! constant? constant! constant...
+        // Do not pit fall in novice trap. It's just a Syntax Error.
+
+
+      TTouchAction.Down: DownSlot1(TouchId, Touches[cnt].Location);
 
       TTouchAction.Move:
         begin
@@ -115,11 +127,12 @@ begin
           MoveSlot1(TouchId);
         end;
       TTouchAction.Cancel:
+        begin
+          FDownCounter := 0;
 
-        begin
-          FDownCounter := 0;
-          FCircles[TouchId].Position.Point := FCirclesSP[TouchId];
-        end;
+          DownSlot0(TouchId);
+          UpEmitterSlot0(TouchId);
+        end;
 
     end;
   end;
@@ -129,28 +142,18 @@ begin
     TTouchAction.Up:
       begin
 
-        //if SumUpEmitterSlot = 1 then begin
-        //  var id := Touches[0].Id;
-        //  FCircles[id].Position.Point := FCirclesSP[id];
-        //end;
-
         Dec(FDownCounter);
 
         if FDownCounter = 0 then begin
-          //for var cnt := 0 to Length(Touches)-1 do begin
-          //  var TouchId := Touches[cnt].Id;
-          //  FCircles[TouchId].Position.Point := FCirclesSP[TouchId];
-          //end;
-
           for var finger1 := 0 to 10 - 1 do begin
             var eval1 := UpEmitterSlot(finger1);
             if eval1 = 1 then begin
-              UpEmitterSlot0(finger1);
               DownSlot0(finger1);
-              FCircles[finger1].Position.Point := FCirclesSP[finger1];
+              UpEmitterSlot0(finger1);
             end;
           end;
         end;
+
       end;
     TTouchAction.Down: Inc(FDownCounter);
     TTouchAction.Move:
@@ -163,17 +166,23 @@ begin
             if eval = 11 then
               UpEmitterSlot0(finger)
             else if eval = 10 then begin
-              UpEmitterSlot0(finger);
               DownSlot0(finger);
-              FCircles[finger].Position.Point := FCirclesSP[finger];
+              UpEmitterSlot0(finger);
             end;
+
           end;
+
         end;
+
+
       end;
     TTouchAction.Cancel: FDownCounter := 0;
+
   end;
 
   DownCounterLabel.Text := 'Down: ' + FDownCounter.ToString;
+
+
 end;
 
 end.

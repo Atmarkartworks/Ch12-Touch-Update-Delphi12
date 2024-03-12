@@ -3,12 +3,21 @@
 * @Unit TTouches Up Down Event Emulation
 *
 * @Create: 2024-March-9
-* @Autor: Atmarkartworks t.m
+* @Author: Atmarkartworks t.m
 *
 *******************************************************************************)
 unit AAW.UpDownDetect;
 
 interface
+
+uses System.Types;
+
+type
+  TAawUpListener = reference to procedure(FingerId: Integer; Apoint: TPointF);
+  TAawDownListener = reference to procedure(FingerId: Integer; Apoint: TPointF);
+
+  procedure SetAawUpListener(AListener: TAawUpListener);
+  procedure SetAawDownListener(AListener: TAawDownListener);
 
   function SumUpEmitterSlot : Byte;
   //
@@ -16,11 +25,11 @@ interface
   //
   function DownSlot(Aidx : Integer) : Byte;
   procedure DownSlot0(Aidx : Integer);
-  procedure DownSlot1(Aidx : Integer);
+  procedure DownSlot1(Aidx : Integer; var Apoint: TPointF);
 
   function UpEmitterSlot(Aidx : Integer) : Byte;
   procedure UpEmitterSlot0(Aidx : Integer);
-  procedure UpEmitterSlot1(Aidx : Integer);
+  procedure UpEmitterSlot1(Aidx : Integer; var Apoint: TPointF);
 
   function UpSlot(Aidx : Integer) : Byte;
   procedure UpSlot0(Aidx : Integer);
@@ -38,6 +47,11 @@ interface
   procedure UpSlotInit;
   procedure MoveSlotInit;
 
+  procedure UpPointsInit;
+
+
+implementation
+
 
 var
   FDownSlot : TArray<Byte>;
@@ -45,7 +59,21 @@ var
   FUpSlot : TArray<Byte>;
   FMoveSlot : TArray<Byte>;
 
-implementation
+  FUpPoints : TArray<TPointF>;
+
+  UpListener : TAawUpListener;
+  DownListener : TAawDownListener;
+
+  procedure SetAawUpListener(AListener: TAawUpListener);
+  begin
+    UpListener := AListener;
+  end;
+
+  procedure SetAawDownListener(AListener: TAawDownListener);
+  begin
+    DownListener := AListener;
+  end;
+
 
   function SumUpEmitterSlot : Byte;
   begin
@@ -56,12 +84,34 @@ implementation
   // @define getter/setter
   //
   function DownSlot(Aidx : Integer) : Byte; begin Result := FDownSlot[Aidx]; end;
-  procedure DownSlot0(Aidx : Integer); begin FDownSlot[Aidx] := 0; end;
-  procedure DownSlot1(Aidx : Integer); begin FDownSlot[Aidx] := 1; end;
+  procedure DownSlot0(Aidx : Integer);
+  begin
+    if FDownSlot[Aidx] = 1 then begin
+      if Assigned(UpListener) then UpListener(Aidx, FUpPoints[Aidx]);
+
+      FDownSlot[Aidx] := 0;
+    end;
+  end;
+  procedure DownSlot1(Aidx : Integer; var Apoint: TPointF);
+  begin
+    if FDownSlot[Aidx] = 0 then begin
+      if Assigned(DownListener) then DownListener(Aidx, Apoint);
+      FDownSlot[Aidx] := 1;
+    end;
+  end;
 
   function UpEmitterSlot(Aidx : Integer) : Byte; begin Result := FUpEmitterSlot[Aidx]; end;
-  procedure UpEmitterSlot0(Aidx : Integer); begin FUpEmitterSlot[Aidx] := 0; end;
-  procedure UpEmitterSlot1(Aidx : Integer); begin FUpEmitterSlot[Aidx] := 1; end;
+  procedure UpEmitterSlot0(Aidx : Integer);
+  begin
+    FUpEmitterSlot[Aidx] := 0;
+    FUpPoints[Aidx] := PointF(0.0,0.0);
+  end;
+
+  procedure UpEmitterSlot1(Aidx : Integer; var Apoint: TPointF);
+  begin
+    FUpEmitterSlot[Aidx] := 1;
+    FUpPoints[Aidx] := Apoint;
+  end;
 
   function UpSlot(Aidx : Integer) : Byte; begin Result := FUpSlot[Aidx]; end;
   procedure UpSlot0(Aidx : Integer); begin FUpSlot[Aidx] := 0; end;
@@ -78,5 +128,7 @@ implementation
   procedure UpEmitterSlotInit; begin FUpEmitterSlot :=  [0,0,0,0,0,0,0,0,0,0]; end;
   procedure UpSlotInit; begin FUpSlot :=  [1,1,1,1,1,1,1,1,1,1]; end;
   procedure MoveSlotInit; begin FMoveSlot :=  [0,0,0,0,0,0,0,0,0,0]; end;
+
+  procedure UpPointsInit; begin FUpPoints := [PointF(0.0,0.0), PointF(0.0,0.0),PointF(0.0,0.0),PointF(0.0,0.0),PointF(0.0,0.0),PointF(0.0,0.0),PointF(0.0,0.0),PointF(0.0,0.0),PointF(0.0,0.0),PointF(0.0,0.0)]; end;
 
 end.
